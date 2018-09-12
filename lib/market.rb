@@ -52,7 +52,16 @@ class Market
   end
 
   def sell(item, quantity)
-    total_inventory[item] > quantity
+    has_enough = total_inventory[item] > quantity
+
+    if has_enough
+      @vendors.each do |vendor|
+        if vendor.inventory.include?(item)
+          vendor.inventory[item] -= quantity
+        end
+      end
+    end
+    has_enough
   end
 
 end 

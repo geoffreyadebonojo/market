@@ -169,7 +169,8 @@ Add a method to your Market class called `sell` that takes an item and a quantit
 
 - If the Market's has enough of the item in stock to satisfy the given quantity, this method should return `true`. 
 
-**Additionally**, this method should reduce the stock of the Vendors. 
+**Additionally**, this method should reduce the stock of the Vendors.
+ 
 1. It should look through the Vendors in the order they were added and sell the item from the first Vendor with that item in stock. 
 
 2. If that Vendor does not have enough stock to satisfy the given quantity, the Vendor's entire stock of that item will be depleted, and the remaining quantity will be sold from the next vendor with that item in stock. 
