@@ -121,6 +121,28 @@ class MarketTest < Minitest::Test
 
     expected = {"Peaches"=>100, "Tomatoes"=>7, "Banana Nice Cream"=>50, "Peach-Raspberry Nice Cream"=>25}
     assert_equal expected, @m.total_inventory
+  end
+
+
+  def test_it_can_sell_items
+    vendor_1 = Vendor.new("Rocky Mountain Fresh")
+    vendor_1.stock("Peaches", 35)
+    vendor_1.stock("Tomatoes", 7)
+
+    vendor_2 = Vendor.new("Ba-Nom-a-Nom") 
+    vendor_2.stock("Banana Nice Cream", 50)
+    vendor_2.stock("Peach-Raspberry Nice Cream", 25)
+
+    vendor_3 = Vendor.new("Palisade Peach Shack")
+    vendor_3.stock("Peaches", 65)
+
+    @m.add_vendor(vendor_1)
+    @m.add_vendor(vendor_2)
+    @m.add_vendor(vendor_3)
+
+    assert_equal false, @m.sell("Peaches", 200)
+    assert_equal false, @m.sell("Onions", 1)
+    assert_equal true, @m.sell("Banana Nice Cream", 5)
 
   end
 

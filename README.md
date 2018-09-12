@@ -165,9 +165,16 @@ pry(main)> market.total_inventory
 
 Add a method to your Market class called `sell` that takes an item and a quantity as arguments. There are two possible outcomes of the `sell` method:
 
-1. If the Market does not have enough of the item in stock to satisfy the given quantity, this method should return `false`.
+- If the Market does not have enough of the item in stock to satisfy the given quantity, this method should return `false`.
 
-2. If the Market's has enough of the item in stock to satisfy the given quantity, this method should return `true`. Additionally, this method should reduce the stock of the Vendors. It should look through the Vendors in the order they were added and sell the item from the first Vendor with that item in stock. If that Vendor does not have enough stock to satisfy the given quantity, the Vendor's entire stock of that item will be depleted, and the remaining quantity will be sold from the next vendor with that item in stock. It will follow this pattern until the entire quantity requested has been sold.
+- If the Market's has enough of the item in stock to satisfy the given quantity, this method should return `true`. 
+
+**Additionally**, this method should reduce the stock of the Vendors. 
+1. It should look through the Vendors in the order they were added and sell the item from the first Vendor with that item in stock. 
+
+2. If that Vendor does not have enough stock to satisfy the given quantity, the Vendor's entire stock of that item will be depleted, and the remaining quantity will be sold from the next vendor with that item in stock. 
+
+3. It will follow this pattern until the entire quantity requested has been sold.
 
 For example, suppose vendor_1 has 35 `"Peaches"` and vendor_3 has 65 `"Peaches"`, and vendor_1 was added to the market first. If the method `sell("Peaches", 40)` is called, the method should return `true`, vendor_1's new stock of `"Peaches"` should be 0, and vendor_3's new stock of `"Peaches"` should be 60.
 

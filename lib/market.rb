@@ -50,4 +50,9 @@ class Market
 
     inventory_of_all_items
   end
+
+  def sell(item, quantity)
+    total_inventory[item] > quantity
+  end
+
 end 
