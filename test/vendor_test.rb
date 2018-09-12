@@ -25,4 +25,13 @@ class VendorTest < Minitest::Test
   def test_it_can_check_stock
     assert_equal 0, @v.check_stock("Peaches")
   end
+
+  def test_it_can_stock_items
+    @v.stock("Peaches", 30)
+    assert_equal 30, @v.check_stock("Peaches")
+
+  end
+
+
+
 end
