@@ -18,4 +18,9 @@ class Market
     end
   end
 
+  def vendors_that_sell(item)
+    @vendors.keep_if do |v|
+      v.inventory.include?(item)
+    end
+  end
 end 
