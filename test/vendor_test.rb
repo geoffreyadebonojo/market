@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 
 require './lib/vendor'
+require 'pry'
 
 class VendorTest < Minitest::Test
 
@@ -27,9 +28,14 @@ class VendorTest < Minitest::Test
   end
 
   def test_it_can_stock_items
+    inventory_hash = {"Peaches" => 55, "Tomatoes" => 12}
+
     @v.stock("Peaches", 30)
     assert_equal 30, @v.check_stock("Peaches")
-
+    @v.stock("Peaches", 25)
+    assert_equal 55, @v.check_stock("Peaches")
+    @v.stock("Tomatoes", 12)
+    assert_equal inventory_hash, @v.inventory
   end
 
 
