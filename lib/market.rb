@@ -19,7 +19,7 @@ class Market
   end
 
   def vendors_that_sell(item)
-    @vendors.keep_if do |v|
+    @vendors.find_all do |v|
       v.inventory.include?(item)
     end
   end
